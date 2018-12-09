@@ -56,10 +56,15 @@ When the user clicks the star icon on each track, the track should be marked as 
 
 **Questions:**
 - How will you track whether or not a track is a favorite? Where will this state live?
+  + By setting state within the track component based on input 'checked' prop and adding logic to alter that state when user 'selects' the star (favorite key).
+  + Since a prop cannot be changed within a component it must be done within parent, but state can be altered from within, I'm not sure where this will go. My initial guess is within the track component.
 - Will you need to switch a functional component to a classical component?
+  + Yes, I will need to switch the track component to be a classical component that can hand any data that might change and set state.
 - What event should you listen for?
   - Hint: it's not `onClick`. Check the warning in the console.
+    + Either select or mouseDown - my initial guess mouseDown.
 - Draw a diagram of the flow of rendering and callbacks in your app so far, similar to the one we drew in class.
+  + :(
 
 ### Wave 2: Send to Top
 
