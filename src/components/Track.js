@@ -9,30 +9,34 @@ class Track extends React.Component {
   constructor({title, artist, playtime, albumart, favorite}) {
     super();
     this.state = {
-      title: title,
-      artist: artist,
-      playtime: playtime,
-      albumart: albumart,
-      favorite: favorite
+      trackTitle: title,
+      trackArtist: artist,
+      trackPlaytime: playtime,
+      trackAlbumart: albumart,
+      trackFavorite: favorite
     };
   }
   // const Track = ({title, artist, playtime, albumart, favorite}) => {
-  handleFavorite() {
+  handleFavorite = () => {
     console.log("hello");
-  }
+    this.setState({
+      trackFavorite: !this.state.trackFavorite
+      });
+  };
+
   render() {
     return (
       <li className="track">
-        <img className="track--albumart" alt={`album art for ${this.state.title}`} src={this.state.albumart} />
-        <h3 className="track--title">{this.state.title}</h3>
+        <img className="track--albumart" alt={`album art for ${this.state.trackTitle}`} src={this.state.trackAlbumart} />
+        <h3 className="track--title">{this.state.trackTitle}</h3>
         <input
           type="checkbox"
           className="track--favorite"
-          checked={!this.state.favorite}
+          checked={!this.state.trackFavorite}
           onChange={this.handleFavorite}
           />
-        <p className="track--artist">{this.state.artist}</p>
-        <p className="track--playtime">{this.state.playtime}</p>
+        <p className="track--artist">{this.state.trackArtist}</p>
+        <p className="track--playtime">{this.state.trackPlaytime}</p>
         <button
           className="track--control track--to-top"
           >
